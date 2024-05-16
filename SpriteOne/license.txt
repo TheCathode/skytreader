@@ -1,0 +1,11 @@
+Model Information:
+* title:	Character Card Sprite Knight
+* source:	https://sketchfab.com/3d-models/character-card-sprite-knight-b392836577cf462fa9a27a3ebfb80e1d
+* author:	klrxyz (https://sketchfab.com/klrxyz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Character Card Sprite Knight" (https://sketchfab.com/3d-models/character-card-sprite-knight-b392836577cf462fa9a27a3ebfb80e1d) by klrxyz (https://sketchfab.com/klrxyz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

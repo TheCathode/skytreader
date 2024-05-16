@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="//unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component@^2.2.1/dist/aframe-aabb-collider-component.min.js"></script>
+    <script src="game.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <a-scene start-game physics="restitution: 0.2; friction: 0; gravity: -9.8">
+        <!-- Defining the texture "Floor", like a variable. -->
+        <a-assets>
+            <img id="cloud" src="8680.jpg">
+        </a-assets>
+
+        <a-sky src="Sky2/textures/Scene_-_Root_diffuse.jpeg" rotation="0 0 180"></a-sky>
+
+        <!-- Making camera and locking a gltf-model to it-->
+        <a-entity position="0 1.8 0" wasd-controls="wsEnabled: false; acceleration:500;" kinematic-body="radius: 1; mass: 0.5;"  jump-ability="distance: 5">
+        <a-entity camera position="0 1.8 0" movement-controls look-controls="pointerLockEnabled: true; enabled: false;">
+            <a-gltf-model static-body scale="3 3 3" src="SpriteOne/scene.gltf" rotation="0 30 0" position="0 -3 -10"></a-gltf-model>
+        </a-entity>
+        </a-entity>
+
+
+        <!-- Creating walls so that the camera can't move on the Z-axis and fall off-->
+        <a-plane static-body="mass: 1" material="opacity: 0.0; transparent: true; roughness: 0;" width="200" height="40" position="0 12 -1.2"></a-plane>
+        <a-plane static-body="mass: 1" material="opacity: 0.0; transparent: true; roughness: 0;" width="200" height="40" position="0 12 1.2"></a-plane>
+
+        <!-- Platforms to jump on -->
+        
+        <!-- Platform 1-->
+        <a-box static-body width="5" height="1.8" depth="1" position="7 1 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="3.25 0 -7" scale="0.1 0.1 0.05" opacity="0.4"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="7 4 0"></a-box>
+        
+        <!-- Platform 0-->
+        <a-box static-body width="5" height="1.8" depth="1" position="0 -3 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="-3.75 -4 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="0 0 0"></a-box>
+
+        <a-box static-body width="5" height="1.8" depth="1" position="17 4 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="13.25 3 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="17 7 0"></a-box>
+
+        <a-box static-body width="5" height="1.8" depth="1" position="14 -2 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="10.25 -3 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="14 1 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="22 -5 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="18.25 -6 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="22 -2 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="25 1 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="21.25 0 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="25 4 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="26 8 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="22.25 7 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="26 11 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="30 -8 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="26.25 -9 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="30 -5 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="35 -3 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="31.25 -4 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="35 0 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="36 4 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="32.25 3 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="36 7 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="44 9 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="40.25 8 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="44 12 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="45 -3 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="41.25 -4 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="45 0 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="53 15 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="49.25 14 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="53 18 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="56 -3 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="52.25 -4 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="56 0 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="65 7 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="61.25 6 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="65 10 0"></a-box>
+
+            <a-box static-body width="5" height="1.8" depth="1" position="61 1 -10" opacity="0"></a-box>
+            <a-gltf-model src="low_poly_cloud/scene.gltf" position="57.25 0 -7" scale="0.1 0.1 0.05"></a-gltf-model>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="61 4 0"></a-box>
+
+            <a-box static-body width="2" height="1.8" depth="1" position="73 7 -10" opacity="0"></a-box>
+            <a-box static-body color="green" width="2" height="1.8" depth="0.5" position="73 10 0"></a-box>
+
+            <a-box static-body width="4" height="1.8" depth="1" position="80 10 -10" opacity="0"></a-box>
+            <a-box static-body color="green" width="4" height="1.8" depth="0.5" position="80 13 0"></a-box>
+
+            <a-box static-body color="green" width="5" height="1.8" depth="1" position="88 10 -10"></a-box>
+            <a-box static-body color="green" width="5" height="1.8" depth="0.5" position="88 13 0"></a-box>
+
+            <a-box static-body color="red" width="6" height="30" depth="1" position="0 -40 -30"></a-box>
+            <a-box static-body color="red" width="20" height="6" depth="1" position="7 -53 -30"></a-box>
+
+            <a-box static-body color="red" width="6" height="30" depth="1" position="40 -40 -30"></a-box>
+            <a-box static-body color="red" width="20" height="6" depth="1" position="47 -53 -30"></a-box>
+
+            <a-box static-body color="red" width="6" height="30" depth="1" position="80 -40 -30"></a-box>
+            <a-box static-body color="red" width="20" height="6" depth="1" position="87 -53 -30"></a-box>
+
+            <a-box static-body color="red" width="6" height="30" depth="1" position="120 -40 -30"></a-box>
+            <a-box static-body color="red" width="20" height="6" depth="1" position="127 -53 -30"></a-box>
+
+
+        <a-light position="50 200 400" penumbra="2.0" angle="90" intensity="1.2"></a-light>
+
+ 
+    </a-scene>
+</body>
+</html>
